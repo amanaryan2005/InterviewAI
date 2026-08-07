@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 96%;
+    --card: 222 40% 7%;
+    --card-foreground: 210 40% 96%;
+    --popover: 222 40% 7%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 189 100% 50%;
+    --primary-foreground: 222 47% 4%;
+    --secondary: 222 30% 14%;
+    --secondary-foreground: 210 40% 90%;
+    --muted: 222 30% 11%;
+    --muted-foreground: 215 18% 52%;
+    --accent: 225 70% 58%;
+    --accent-foreground: 210 40% 96%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 96%;
+    --border: 222 28% 16%;
+    --input: 222 30% 11%;
+    --ring: 189 100% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-score {
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-cyber-grid {
+    background-image:
+      linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .card-surface {
+    background: linear-gradient(
+      135deg,
+      rgba(15, 28, 52, 0.85) 0%,
+      rgba(10, 18, 38, 0.9) 100%
+    );
+    backdrop-filter: blur(12px);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 24px rgba(0, 212, 255, 0.25), 0 0 48px rgba(0, 212, 255, 0.08);
+  }
+
+  .glow-text-cyan {
+    text-shadow: 0 0 24px rgba(0, 212, 255, 0.5);
+  }
+}
+
+/* Waveform keyframes */
+@keyframes waveBar {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+.wave-bar {
+  transform-origin: bottom;
+  animation: waveBar var(--wave-dur, 1.2s) ease-in-out infinite;
+  animation-delay: var(--wave-delay, 0s);
+}
+
+/* Pulse ring */
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #020817; }
+::-webkit-scrollbar-thumb { background: rgba(0, 212, 255, 0.25); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 212, 255, 0.45); }
+
+/* Selection */
+::selection { background: rgba(0, 212, 255, 0.25); color: white; }
